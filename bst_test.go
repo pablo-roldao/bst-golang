@@ -43,3 +43,17 @@ func TestToReverseString(t *testing.T) {
 		t.Fatalf("%v(expected) != %v", expected, tree.ToReverseString())
 	}
 }
+
+func TestGetHeight(t *testing.T) {
+	expected := 3
+	if tree.GetHeight() != expected {
+		t.Fatalf("%v(expected) != %v", expected, tree.GetHeight())
+	}
+}
+
+func TestGetNumberOfLeaves(t *testing.T) {
+	expected := 4
+	if tree.GetNumberOfLeaves() != expected {
+		t.Fatalf("%v(expected) != %v", expected, tree.GetNumberOfLeaves())
+	}
+}
