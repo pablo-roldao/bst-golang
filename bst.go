@@ -32,3 +32,36 @@ func (tree *Node) ToPreOrderString() string {
 
 	return result
 }
+
+func (tree *Node) ToInOrderString() string {
+	var result string
+	if tree != nil {
+		result += tree.left.ToInOrderString()
+		result += fmt.Sprintf("[%d]", tree.value)
+		result += tree.right.ToInOrderString()
+	}
+
+	return result
+}
+
+func (tree *Node) ToPosOrderString() string {
+	var result string
+	if tree != nil {
+		result += tree.left.ToPosOrderString()
+		result += tree.right.ToPosOrderString()
+		result += fmt.Sprintf("[%d]", tree.value)
+	}
+
+	return result
+}
+
+func (tree *Node) ToReverseString() string {
+	var result string
+	if tree != nil {
+		result += tree.right.ToReverseString()
+		result += fmt.Sprintf("[%d]", tree.value)
+		result += tree.left.ToReverseString()
+	}
+
+	return result
+}
