@@ -96,3 +96,33 @@ func (tree *Node) GetNumberOfLeaves() int {
 
 	return result
 }
+
+func (tree *Node) Search(value int) *Node {
+	if tree == nil {
+		return nil
+	}
+
+	if tree.value < value {
+		return tree.right.Search(value)
+	} else if tree.value > value {
+		return tree.left.Search(value)
+	} else {
+		return tree
+	}
+}
+
+func (tree *Node) GetPath(value int) string {
+	result := ""
+
+	if tree.Search(value) != nil {
+		result += fmt.Sprintf("[%v]", tree.value)
+
+		if tree.value < value {
+			result += tree.right.GetPath(value)
+		} else {
+			result += tree.left.GetPath(value)
+		}
+	}
+
+	return result
+}
