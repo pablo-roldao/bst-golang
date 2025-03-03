@@ -6,8 +6,9 @@ import (
 	"github.com/pablo-roldao/bst"
 )
 
+var tree *bst.Node
+
 func TestInsert(t *testing.T) {
-	var tree *bst.Node
 	tree = tree.Insert(50)
 	tree = tree.Insert(30)
 	tree = tree.Insert(70)
@@ -19,5 +20,26 @@ func TestInsert(t *testing.T) {
 	expected := "[50][30][20][40][70][60][80]"
 	if tree.ToPreOrderString() != expected {
 		t.Fatalf("%v(expected) != %v", expected, tree.ToPreOrderString())
+	}
+}
+
+func TestToInOrderString(t *testing.T) {
+	expected := "[20][30][40][50][60][70][80]"
+	if tree.ToInOrderString() != expected {
+		t.Fatalf("%v(expected) != %v", expected, tree.ToInOrderString())
+	}
+}
+
+func TestToPosOrderString(t *testing.T) {
+	expected := "[20][40][30][60][80][70][50]"
+	if tree.ToPosOrderString() != expected {
+		t.Fatalf("%v(expected) != %v", expected, tree.ToPosOrderString())
+	}
+}
+
+func TestToReverseString(t *testing.T) {
+	expected := "[80][70][60][50][40][30][20]"
+	if tree.ToReverseString() != expected {
+		t.Fatalf("%v(expected) != %v", expected, tree.ToReverseString())
 	}
 }
