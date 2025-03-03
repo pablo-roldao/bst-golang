@@ -22,10 +22,13 @@ func (tree *Node) Insert(value int) *Node {
 	return tree
 }
 
-func (tree *Node) PrintPreOrder() {
+func (tree *Node) ToPreOrderString() string {
+	var result string
 	if tree != nil {
-		fmt.Printf("[%d]", tree.value)
-		tree.left.PrintPreOrder()
-		tree.right.PrintPreOrder()
+		result += fmt.Sprintf("[%d]", tree.value)
+		result += tree.left.ToPreOrderString()
+		result += tree.right.ToPreOrderString()
 	}
+
+	return result
 }
