@@ -1,3 +1,3 @@
-module pabloroldao.com.br/bst
+module github.com/pablo-roldao/bst
 
 go 1.24.0
