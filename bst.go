@@ -65,3 +65,34 @@ func (tree *Node) ToReverseString() string {
 
 	return result
 }
+
+func (tree *Node) GetHeight() int {
+	if tree == nil {
+		return 0
+	}
+
+	leftHeight := tree.left.GetHeight()
+	rightHeight := tree.right.GetHeight()
+
+	if leftHeight > rightHeight {
+		return leftHeight + 1
+	} else {
+		return rightHeight + 1
+	}
+}
+
+func (tree *Node) GetNumberOfLeaves() int {
+	if tree == nil {
+		return 0
+	}
+
+	result := 0
+	result += tree.left.GetNumberOfLeaves()
+	result += tree.left.GetNumberOfLeaves()
+
+	if tree.left == nil && tree.right == nil {
+		result++
+	}
+
+	return result
+}
