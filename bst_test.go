@@ -57,3 +57,10 @@ func TestGetNumberOfLeaves(t *testing.T) {
 		t.Fatalf("%v(expected) != %v", expected, tree.GetNumberOfLeaves())
 	}
 }
+
+func TestGetPath(t *testing.T) {
+	expected := "[50][70][60]"
+	if tree.GetPath(60) != expected {
+		t.Fatalf("%v(e60xpected) != %v", expected, tree.GetPath(60))
+	}
+}
