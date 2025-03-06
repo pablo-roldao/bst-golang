@@ -126,3 +126,43 @@ func (tree *Node) GetPath(value int) string {
 
 	return result
 }
+
+func (tree *Node) getGreaterNode() *Node {
+	if tree.right == nil {
+		return tree
+	}
+
+	return tree.right.getGreaterNode()
+}
+
+func (tree *Node) Remove(value int) *Node {
+	if tree == nil {
+		return tree
+	}
+
+	if tree.value > value {
+		tree.left = tree.left.Remove(value)
+	} else if tree.value < value {
+		tree.right = tree.right.Remove(value)
+	} else {
+		if tree.left == nil && tree.right == nil {
+			return nil
+		}
+
+		if tree.left != nil && tree.right != nil {
+			tree.value = tree.left.getGreaterNode().value
+			tree.left = tree.left.Remove(tree.value)
+			return tree
+		}
+
+		if tree.left == nil {
+			return tree.right
+		}
+
+		if tree.right == nil {
+			return tree.left
+		}
+	}
+
+	return tree
+}
