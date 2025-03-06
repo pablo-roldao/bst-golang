@@ -18,7 +18,6 @@ This repository contains an implementation of a **Binary Search Tree (BST)** in 
   - **Find the path to a node (`GetPath`)**
 
 ## Usage
-```
 Import the `bst` package and use its methods:
 ```go
 package main
